@@ -1,4 +1,6 @@
-module.exports = function(app, passport, db) {
+//const { ObjectID } = require("mongodb");
+
+module.exports = function(app, passport, db, ObjectID) {
 
 // normal routes ===============================================================
 
@@ -36,11 +38,16 @@ module.exports = function(app, passport, db) {
       })
     })
 
-    app.put('/messages', (req, res) => {
+    app.put('/up', (req, res) => {
+      console.log(req.body)
       db.collection('messages')
-      .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
-        $set: {
-          thumbUp:req.body.thumbUp + 1
+      .findOneAndUpdate({ 
+        _id: new ObjectID(req.body.id)
+       //name: req.body.name, msg: req.body.msg
+      }, {
+        $inc: {
+          //thumbUp:req.body.thumbUp + 1
+          thumbUp:1
         }
       }, {
         sort: {_id: -1},
@@ -51,8 +58,31 @@ module.exports = function(app, passport, db) {
       })
     })
 
-    app.delete('/messages', (req, res) => {
-      db.collection('messages').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
+    app.put('/down', (req, res) => {
+  db.collection('messages')
+  .findOneAndUpdate({
+    _id: new ObjectID(req.body.id)
+    //name: req.body.name, msg: req.body.msg
+  }, {
+    $inc: {
+      //thumbUp:req.body.thumbUp - 1
+      thumbUp:-1
+    }
+  }, {
+    sort: {_id: -1},
+    upsert: true
+  }, (err, result) => {
+    if (err) return res.send(err)
+    res.send(result)
+  })
+})
+
+    app.delete('/delete', (req, res) => {
+      db.collection('messages').findOneAndDelete({
+        //name: req.body.name, msg: req.body.msg
+       _id: new ObjectID(req.body.id)
+
+      }, (err, result) => {
         if (err) return res.send(500, err)
         res.send('Message deleted!')
       })
@@ -98,7 +128,7 @@ module.exports = function(app, passport, db) {
 
     // local -----------------------------------
     app.get('/unlink/local', isLoggedIn, function(req, res) {
-        var user            = req.user;
+        let user            = req.user;
         user.local.email    = undefined;
         user.local.password = undefined;
         user.save(function(err) {
