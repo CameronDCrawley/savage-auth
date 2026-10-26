@@ -15,7 +15,7 @@ Array.from(thumbUp).forEach(function (element) {
         // 'name': name,
         // 'msg': msg,
         thumbUp,
-        id,
+        id:element.dataset.id
       }),
     })
       .then((response) => {
@@ -49,7 +49,7 @@ Array.from(thumbDown).forEach(function (element) {
         // 'msg': msg,
         thumbUp: thumbUp,
         thumbDown: thumbDown,
-        id: id,
+        id:element.dataset.id
       }),
     })
       .then((response) => {
@@ -75,7 +75,7 @@ Array.from(trash).forEach(function (element) {
       body: JSON.stringify({
         // name: name,
         // msg: msg,
-        id
+        id:element.dataset.id
       }),
     }).then(function (response) {
       window.location.reload();
