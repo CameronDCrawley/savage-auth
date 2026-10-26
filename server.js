@@ -5,7 +5,7 @@
 let express  = require('express');
 let app      = express();
 let port     = process.env.PORT || 8080;
-const {ObjectID} =require('mongodb') // object destructuring to get the objects id
+const {ObjectId} = require('mongodb') // object destructuring to get the objects id
 let mongoose = require('mongoose');
 let passport = require('passport');
 let flash    = require('connect-flash');
@@ -23,7 +23,7 @@ let db
 mongoose.connect(configDB.url, (err, database) => {
   if (err) return console.log(err)
   db = database
-  require('./app/routes.js')(app, passport, db);//
+  require('./app/routes.js')(app, passport, db, ObjectId);//
 }); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
