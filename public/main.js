@@ -15,7 +15,7 @@ Array.from(thumbUp).forEach(function (element) {
         // 'name': name,
         // 'msg': msg,
         thumbUp,
-        id:element.dataset.id
+        id: element.dataset.id,
       }),
     })
       .then((response) => {
@@ -30,15 +30,15 @@ Array.from(thumbUp).forEach(function (element) {
 
 Array.from(thumbDown).forEach(function (element) {
   element.addEventListener("click", function () {
-    const id =this.parentNode.parentNode.childNodes[1].dataset.messageId;
+    // const id =this.parentNode.parentNode.childNodes[1].dataset.messageId;
     // const name = this.parentNode.parentNode.childNodes[1].innerText
     // const msg = this.parentNode.parentNode.childNodes[3].innerText
-    const thumbUp = parseFloat(
-      this.parentNode.parentNode.childNodes[5].innerText,
-    );
-    const thumbDown = parseFloat(
-      this.parentNode.parentNode.childNodes[6].innerText,
-    );
+    // const thumbUp = parseFloat(
+    //   this.parentNode.parentNode.childNodes[5].innerText,
+    // );
+    // const thumbDown = parseFloat(
+    //   this.parentNode.parentNode.childNodes[6].innerText,
+    // );
     console.log(element);
 
     fetch("down", {
@@ -49,7 +49,7 @@ Array.from(thumbDown).forEach(function (element) {
         // 'msg': msg,
         thumbUp: thumbUp,
         thumbDown: thumbDown,
-        id:element.dataset.id
+        id: element.dataset.id,
       }),
     })
       .then((response) => {
