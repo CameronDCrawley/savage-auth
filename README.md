@@ -2,33 +2,33 @@
 A full-stack web application dedicated to 21 Savage featuring secure user authentication via Passport.js, MongoDB native driver data persistence, and an interactive message board where users can post messages, vote, and manage content.
 
 ## Live Demo
-Render Deployment: https://savage-auth-y4yv.onrender.com/
+**Render Deployment:** https://savage-auth-y4yv.onrender.com/
 
 ## Features
-User Authentication: Secure local login, registration, and session management powered by Passport.js with flash messaging.
+**User Authentication:** Secure local login, registration, and session management powered by Passport.js with flash messaging.
 
-Interactive Message Board: Post messages, upvote or downvote entries dynamically, and delete items from the board.
+**Interactive Message Board:** Post messages, upvote or downvote entries dynamically, and delete items from the board.
 
-Native MongoDB Integration: Direct database interactions utilizing the MongoDB native driver and ObjectId queries.
+**Native MongoDB Integration:** Direct database interactions utilizing the MongoDB native driver and ObjectId queries.
 
-Protected Profile Route: Middleware-secured dashboard views (/profile) restricted to authenticated users.
+**Protected Profile Route:** Middleware-secured dashboard views (/profile) restricted to authenticated users.
 
-Bootstrap Styling: Clean UI layout utilizing Bootstrap 3 and Font Awesome icons.
+**Bootstrap Styling:** Clean UI layout utilizing Bootstrap 3 and Font Awesome icons.
 
 ## Routes & Endpoints
-GET / — Renders the home page with login and signup links.
+**GET** / — Renders the home page with login and signup links.
 
-GET /profile — Renders the secure user profile and message board (requires authentication).
+**GET** /profile — Renders the secure user profile and message board (requires authentication).
 
-GET /login — Renders the user login form.
+**GET** /login — Renders the user login form.
 
-POST /login — Authenticates user credentials via Passport local strategy.
+**POST** /login — Authenticates user credentials via Passport local strategy.
 
-GET /signup — Renders the new user registration form.
+**GET** /signup — Renders the new user registration form.
 
-POST /signup — Registers a new user account.
+**POST** /signup — Registers a new user account.
 
-GET /logout — Terminates the user session and redirects home.
+**GET** /logout — Terminates the user session and redirects home.
 
 POST /messages — Inserts a new message document into the database.
 
@@ -53,13 +53,13 @@ A MongoDB database connection URI
 
 Installation Commands
 Clone the repository:
-git clone https://github.com/your-username/your-repo-name.git
+`git clone https://github.com/your-username/your-repo-name.git`
 
 Navigate into the project folder:
-cd your-repo-name
+`cd your-repo-name`
 
 ## Install dependencies:
-npm install
+`npm install`
 
 Configure Environment Variables:
 Create a .env file in the root directory and add your MongoDB connection string and port:
@@ -67,7 +67,7 @@ MONGODB_URI=your_mongodb_connection_string
 PORT=8080
 
 Run the application:
-npm start
+`npm start`
 
 The server will start on http://localhost:8080 (or your configured port).
 
