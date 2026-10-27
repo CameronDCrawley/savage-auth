@@ -85,3 +85,6 @@ Express Session & Connect Flash
 EJS (Embedded JavaScript Templating)
 
 Bootstrap 3 & Font Awesome
+
+<img width="2553" height="966" alt="image" src="https://github.com/user-attachments/assets/fb71f104-31d8-4858-ac1a-64af84e8b3a7" />
+
